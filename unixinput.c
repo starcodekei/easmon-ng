@@ -516,30 +516,12 @@ static const char usage_str[] = "\n"
         "  If no [file] is given, input will be read from your default sound\n"
         "  hardware. A filename of \"-\" denotes standard input.\n"
         "  -t <type>  : Input file type (any other type than raw requires sox)\n"
-        "  -a <demod> : Add demodulator\n"
-        "  -s <demod> : Subtract demodulator\n"
-        "  -c         : Remove all demodulators (must be added with -a <demod>)\n"
         "  -q         : Quiet\n"
         "  -v <level> : Level of verbosity (e.g. '-v 3')\n"
-        "               For POCSAG and MORSE_CW '-v1' prints decoding statistics.\n"
         "  -h         : This help\n"
-        "  -A         : APRS mode (TNC2 text output)\n"
         "  -m         : Mute SoX warnings\n"
         "  -r         : Call SoX in repeatable mode (e.g. fixed random seed for dithering)\n"
         "  -n         : Don't flush stdout, increases performance.\n"
-        "  -e         : POCSAG: Hide empty messages.\n"
-        "  -u         : POCSAG: Heuristically prune unlikely decodes.\n"
-        "  -i         : POCSAG: Inverts the input samples. Try this if decoding fails.\n"
-        "  -p         : POCSAG: Show partially received messages.\n"
-        "  -f <mode>  : POCSAG: Disables auto-detection and forces decoding of data as <mode>\n"
-        "                       (<mode> can be 'numeric', 'alpha' and 'skyper')\n"
-        "  -b <level> : POCSAG: BCH bit error correction level. Set 0 to disable, default is 2.\n"
-        "                       Lower levels increase performance and lower false positives.\n"
-        "  -o         : CW: Set threshold for dit detection (default: 500)\n"
-        "  -d         : CW: Dit length in ms (default: 50)\n"
-        "  -g         : CW: Gap length in ms (default: 50)\n"
-        "  -x         : CW: Disable auto threshold detection\n"
-        "  -y         : CW: Disable auto timing detection\n"
         "   Raw input requires one channel, 16 bit, signed integer (platform-native)\n"
         "   samples at the demodulator's input sampling rate, which is\n"
         "   usually 22050 Hz. Raw input is assumed and required if piped input is used.\n";
@@ -556,7 +538,7 @@ int main(int argc, char *argv[])
     unsigned int overlap = 0;
     char *input_type = "hw";
 
-    while ((c = getopt(argc, argv, "t:a:s:v:b:f:g:d:o:cqhAmrxynipeu")) != EOF) {
+    while ((c = getopt(argc, argv, "t:v:qhmrn")) != EOF) {
         switch (c) {
         case 'h':
         case '?':
@@ -594,44 +576,6 @@ int main(int argc, char *argv[])
 intypefound:
             break;
             
-        case 'a':
-            if (mask_first)
-                memset(dem_mask, 0, sizeof(dem_mask));
-            mask_first = 0;
-            for (i = 0; (unsigned int) i < NUMDEMOD; i++)
-                if (!strcasecmp(optarg, dem[i]->name)) {
-                    MASK_SET(i);
-                    break;
-                }
-            if ((unsigned int) i >= NUMDEMOD) {
-                fprintf(stderr, "invalid mode \"%s\"\n", optarg);
-                errflg++;
-            }
-            break;
-            
-        case 's':
-            if (mask_first)
-                memset(dem_mask, 0xff, sizeof(dem_mask));
-            mask_first = 0;
-            for (i = 0; (unsigned int) i < NUMDEMOD; i++)
-                if (!strcasecmp(optarg, dem[i]->name)) {
-                    MASK_RESET(i);
-                    break;
-                }
-            if ((unsigned int) i >= NUMDEMOD) {
-                fprintf(stderr, "invalid mode \"%s\"\n", optarg);
-                errflg++;
-            }
-            break;
-            
-        case 'c':
-            if (mask_first)
-                memset(dem_mask, 0xff, sizeof(dem_mask));
-            mask_first = 0;
-            for (i = 0; (unsigned int) i < NUMDEMOD; i++)
-                MASK_RESET(i);
-            break;
-            
         case 'n':
             dont_flush = true;
             break;
@@ -645,8 +589,6 @@ intypefound:
     fprintf(stderr, "easmon-ng  (C) 1996/1997 by Tom Sailer HB9JNX/AE4WA\n"
         "             (C) 2012-2014 by Elias Oenal\n"
         "             (C) 2014 by Steven Salerno K5SQL\n");
-    
-    fprintf(stderr, "\n");
     }
 
     if (errflg) {
@@ -705,3 +647,4 @@ intypefound:
 }
 
 /* ---------------------------------------------------------------------- */
+
