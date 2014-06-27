@@ -25,9 +25,6 @@ SOURCES += \
     pocsag.c \
     selcall.c \
     hdlc.c \
-    demod_zvei1.c \
-    demod_zvei2.c \
-    demod_zvei3.c \
     demod_pzvei.c \
     demod_ccir.c \
     demod_eia.c \
