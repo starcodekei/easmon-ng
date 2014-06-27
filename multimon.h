@@ -117,14 +117,6 @@ struct demod_state {
             unsigned int lasts;
         } afsk24;
         
-        struct l1_state_dtmf {
-            unsigned int ph[8];
-            float energy[4];
-            float tenergy[4][16];
-            int blkcount;
-            int lastch;
-        } dtmf;
-        
         struct l1_state_selcall {
             unsigned int ph[16];
             float energy[4];
@@ -133,10 +125,6 @@ struct demod_state {
             int lastch;
             int timeout;
         } selcall;
-
-        struct l1_state_dumpcsv {
-            uint32_t current_sequence;
-	} dumpcsv;
 
     } l1;
 };
@@ -161,12 +149,7 @@ struct demod_param {
 
 extern const struct demod_param demod_eas;
 
-extern const struct demod_param demod_dtmf;
-
-extern const struct demod_param demod_dumpcsv;
-
-
-#define ALL_DEMOD &demod_eas, &demod_dtmf, &demod_dumpcsv 
+#define ALL_DEMOD &demod_eas
 
 
 /* ---------------------------------------------------------------------- */

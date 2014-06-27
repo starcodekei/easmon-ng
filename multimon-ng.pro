@@ -24,11 +24,9 @@ SOURCES += \
     uart.c \
     selcall.c \
     hdlc.c \
-    demod_dtmf.c \
     costabi.c \
     costabf.c \
     demod_eas.c \
-    demod_dumpcsv.c
 
 macx{
 DEFINES += DUMMY_AUDIO
