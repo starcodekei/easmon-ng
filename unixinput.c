@@ -84,13 +84,6 @@ static int mute_sox = 0;
 static int integer_only = true;
 static bool dont_flush = false;
 
-extern int pocsag_mode;
-extern int pocsag_invert_input;
-extern int pocsag_error_correction;
-extern int pocsag_show_partial_decodes;
-extern int pocsag_heuristic_pruning;
-extern int pocsag_prune_empty;
-
 extern int aprs_mode;
 extern int cw_dit_length;
 extern int cw_gap_length;
