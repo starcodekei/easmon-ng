@@ -27,7 +27,6 @@ SOURCES += \
     demod_dtmf.c \
     costabi.c \
     costabf.c \
-    clip.c \
     demod_eas.c \
     demod_dumpcsv.c
 
