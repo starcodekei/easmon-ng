@@ -265,7 +265,6 @@ extern const struct demod_param demod_dtmf;
 extern const struct demod_param demod_zvei1;
 extern const struct demod_param demod_zvei2;
 extern const struct demod_param demod_zvei3;
-extern const struct demod_param demod_dzvei;
 extern const struct demod_param demod_pzvei;
 extern const struct demod_param demod_eea;
 extern const struct demod_param demod_eia;
@@ -278,7 +277,7 @@ extern const struct demod_param demod_dumpcsv;
 
 #define ALL_DEMOD &demod_poc5, &demod_poc12, &demod_poc24, &demod_eas, &demod_ufsk1200, &demod_clipfsk, \
     &demod_afsk1200, &demod_afsk2400, &demod_afsk2400_2, &demod_afsk2400_3, &demod_hapn4800, \
-    &demod_fsk9600, &demod_dtmf, &demod_zvei1, &demod_zvei2, &demod_zvei3, &demod_dzvei, \
+    &demod_fsk9600, &demod_dtmf, &demod_zvei1, &demod_zvei2, &demod_zvei3, \
     &demod_pzvei, &demod_eea, &demod_eia, &demod_ccir, &demod_morse, &demod_dumpcsv 
 
 
