@@ -24,7 +24,6 @@ SOURCES += \
     uart.c \
     selcall.c \
     hdlc.c \
-    demod_ufsk12.c \
     demod_dtmf.c \
     costabi.c \
     costabf.c \

@@ -161,14 +161,12 @@ struct demod_param {
 
 extern const struct demod_param demod_eas;
 
-extern const struct demod_param demod_ufsk1200;
-
 extern const struct demod_param demod_dtmf;
 
 extern const struct demod_param demod_dumpcsv;
 
 
-#define ALL_DEMOD &demod_eas, &demod_ufsk1200, &demod_dtmf, &demod_dumpcsv 
+#define ALL_DEMOD &demod_eas, &demod_dtmf, &demod_dumpcsv 
 
 
 /* ---------------------------------------------------------------------- */
