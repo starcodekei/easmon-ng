@@ -567,17 +567,6 @@ int main(int argc, char *argv[])
             quietflg++;
             break;
             
-        case 'A':
-            aprs_mode = 1;
-            memset(dem_mask, 0, sizeof(dem_mask));
-            mask_first = 0;
-            for (i = 0; (unsigned int) i < NUMDEMOD; i++)
-                if (!strcasecmp("AFSK1200", dem[i]->name)) {
-                    MASK_SET(i);
-                    break;
-                }
-            break;
-            
         case 'v':
             verbose_level = strtoul(optarg, 0, 0);
             break;
