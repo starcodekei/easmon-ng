@@ -185,23 +185,6 @@ struct demod_state {
             int timeout;
         } selcall;
 
-        struct l1_state_morse {
-            uint64_t current_sequence;
-            int_fast16_t threshold_ctr;
-            int_fast32_t detection_threshold;
-            int_fast32_t filtered;
-            int_fast32_t samples_since_change;
-            int_fast32_t signal_max;
-            int_fast32_t glitches;
-            int_fast32_t erroneous_chars;
-            int_fast32_t decoded_chars;
-            int_fast16_t time_unit_dit_dah_samples;
-            int_fast16_t time_unit_gaps_samples;
-            int_fast16_t lowpass_strength;
-            int_fast16_t holdoff_samples;
-            int_fast8_t current_state;  // High = 1, Low = 0
-        } morse;
-        
         struct l1_state_dumpcsv {
             uint32_t current_sequence;
 	} dumpcsv;
@@ -242,20 +225,16 @@ extern const struct demod_param demod_fsk9600;
 
 extern const struct demod_param demod_dtmf;
 
-extern const struct demod_param demod_pzvei;
 extern const struct demod_param demod_eea;
 extern const struct demod_param demod_eia;
 extern const struct demod_param demod_ccir;
-
-extern const struct demod_param demod_morse;
 
 extern const struct demod_param demod_dumpcsv;
 
 
 #define ALL_DEMOD &demod_eas, &demod_ufsk1200, &demod_clipfsk, \
     &demod_afsk1200, &demod_afsk2400, &demod_afsk2400_2, &demod_afsk2400_3, &demod_hapn4800, \
-    &demod_fsk9600, &demod_dtmf, \
-    &demod_pzvei, &demod_eea, &demod_eia, &demod_ccir, &demod_morse, &demod_dumpcsv 
+    &demod_fsk9600, &demod_dtmf, &demod_eea, &demod_eia, &demod_ccir, &demod_dumpcsv 
 
 
 /* ---------------------------------------------------------------------- */

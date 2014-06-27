@@ -25,7 +25,6 @@ SOURCES += \
     pocsag.c \
     selcall.c \
     hdlc.c \
-    demod_pzvei.c \
     demod_ccir.c \
     demod_eia.c \
     demod_eea.c \
@@ -42,7 +41,6 @@ SOURCES += \
     costabf.c \
     clip.c \
     demod_eas.c \
-    demod_morse.c \
     demod_dumpcsv.c
 
 
