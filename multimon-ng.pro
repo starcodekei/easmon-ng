@@ -25,9 +25,7 @@ SOURCES += \
     selcall.c \
     hdlc.c \
     demod_ufsk12.c \
-    demod_fsk96.c \
     demod_dtmf.c \
-    demod_clipfsk.c \
     costabi.c \
     costabf.c \
     clip.c \

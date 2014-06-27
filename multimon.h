@@ -62,18 +62,9 @@ enum EAS_L1_State
     EAS_L1_SYNC = 1,
 };
 
-struct l2_state_clipfsk {
-    unsigned char rxbuf[512];
-    unsigned char *rxptr;
-    uint32_t rxstate;
-    uint32_t rxbitstream;
-    uint32_t rxbitbuf;
-};
-
 struct demod_state {
     const struct demod_param *dem_par;
     union {
-        struct l2_state_clipfsk clipfsk;
         struct l2_state_uart {
             unsigned char rxbuf[8192];
             unsigned char *rxptr;
@@ -113,18 +104,6 @@ struct demod_state {
             uint32_t state;
         } eas;
         
-        struct l1_state_ufsk12 {
-            unsigned int dcd_shreg;
-            unsigned int sphase;
-            unsigned int subsamp;
-        } ufsk12;
-        
-        struct l1_state_clipfsk {
-            unsigned int dcd_shreg;
-            unsigned int sphase;
-            uint32_t subsamp;
-        } clipfsk;
-        
         struct l1_state_afsk12 {
             uint32_t dcd_shreg;
             uint32_t sphase;
@@ -137,12 +116,6 @@ struct demod_state {
             unsigned int sphase;
             unsigned int lasts;
         } afsk24;
-        
-        struct l1_state_fsk96 {
-            unsigned int dcd_shreg;
-            unsigned int sphase;
-            unsigned int descram;
-        } fsk96;
         
         struct l1_state_dtmf {
             unsigned int ph[8];
@@ -189,17 +162,13 @@ struct demod_param {
 extern const struct demod_param demod_eas;
 
 extern const struct demod_param demod_ufsk1200;
-extern const struct demod_param demod_clipfsk;
-
-extern const struct demod_param demod_fsk9600;
 
 extern const struct demod_param demod_dtmf;
 
 extern const struct demod_param demod_dumpcsv;
 
 
-#define ALL_DEMOD &demod_eas, &demod_ufsk1200, &demod_clipfsk, \
-    &demod_fsk9600, &demod_dtmf, &demod_dumpcsv 
+#define ALL_DEMOD &demod_eas, &demod_ufsk1200, &demod_dtmf, &demod_dumpcsv 
 
 
 /* ---------------------------------------------------------------------- */
@@ -216,21 +185,11 @@ void hdlc_rxbit(struct demod_state *s, int bit);
 
 void uart_init(struct demod_state *s);
 void uart_rxbit(struct demod_state *s, int bit);
-void clip_init(struct demod_state *s);
-void clip_rxbit(struct demod_state *s, int bit);
-
-void pocsag_init(struct demod_state *s);
-void pocsag_rxbit(struct demod_state *s, int32_t bit);
-void pocsag_deinit(struct demod_state *s);
 
 void selcall_init(struct demod_state *s);
 void selcall_demod(struct demod_state *s, const float *buffer, int length,
                    const unsigned int *selcall_freq, const char *const name);
 void selcall_deinit(struct demod_state *s);
-
-void xdisp_terminate(int cnum);
-int xdisp_start(void);
-int xdisp_update(int cnum, float *f);
 
 /* ---------------------------------------------------------------------- */
 #endif /* _MULTIMON_H */
