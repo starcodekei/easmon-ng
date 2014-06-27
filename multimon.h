@@ -100,24 +100,6 @@ struct demod_state {
             uint32_t state;
         } eas;
 
-        struct l2_state_pocsag {
-            uint32_t rx_data;
-            unsigned char state;        // state machine
-            unsigned char rx_bit;       // bit counter, counts 32bits
-            unsigned char rx_word;
-            int32_t function;          // POCSAG function
-            int32_t address;           // POCSAG address
-            unsigned char buffer[512];
-            uint32_t numnibbles;
-            uint32_t pocsag_total_error_count;
-            uint32_t pocsag_corrected_error_count;
-            uint32_t pocsag_corrected_1bit_error_count;
-            uint32_t pocsag_corrected_2bit_error_count;
-            uint32_t pocsag_uncorrected_error_count;
-            uint32_t pocsag_total_bits_received;
-            uint32_t pocsag_bits_processed_while_synced;
-            uint32_t pocsag_bits_processed_while_not_synced;
-        } pocsag;
     } l2;
     union {
         

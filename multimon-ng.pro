@@ -22,7 +22,6 @@ HEADERS += \
 SOURCES += \
     unixinput.c \
     uart.c \
-    pocsag.c \
     selcall.c \
     hdlc.c \
     demod_ufsk12.c \
