@@ -671,8 +671,6 @@ intypefound:
     
     for (i = 0; (unsigned int) i < NUMDEMOD; i++)
         if (MASK_ISSET(i)) {
-            if (!quietflg)
-                fprintf(stdout, " %s", dem[i]->name);       //Print demod name
             if(dem[i]->float_samples) integer_only = false; //Enable float samples on demand
             memset(dem_st+i, 0, sizeof(dem_st[i]));
             dem_st[i].dem_par = dem[i];

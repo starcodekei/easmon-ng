@@ -40,14 +40,6 @@ extern const float costabf[0x400];
 
 /* ---------------------------------------------------------------------- */
 
-enum
-{
-    POCSAG_MODE_AUTO = 0,
-    POCSAG_MODE_NUMERIC = 1,
-    POCSAG_MODE_ALPHA = 2,
-    POCSAG_MODE_SKYPER = 3,
-};
-
 enum EAS_L2_State
 {
     EAS_L2_IDLE = 0,
@@ -65,21 +57,6 @@ enum EAS_L1_State
 struct demod_state {
     const struct demod_param *dem_par;
     union {
-        struct l2_state_uart {
-            unsigned char rxbuf[8192];
-            unsigned char *rxptr;
-            uint32_t rxstate;
-            uint32_t rxbitstream;
-            uint32_t rxbitbuf;
-        } uart;
-        
-        struct l2_state_hdlc {
-            unsigned char rxbuf[512];
-            unsigned char *rxptr;
-            uint32_t rxstate;
-            uint32_t rxbitstream;
-            uint32_t rxbitbuf;
-        } hdlc;
         
         struct l2_state_eas {
             char last_message[269];
@@ -117,15 +94,6 @@ struct demod_state {
             unsigned int lasts;
         } afsk24;
         
-        struct l1_state_selcall {
-            unsigned int ph[16];
-            float energy[4];
-            float tenergy[4][32];
-            int blkcount;
-            int lastch;
-            int timeout;
-        } selcall;
-
     } l1;
 };
 
@@ -161,16 +129,6 @@ void _verbprintf(int verb_level, const char *fmt, ...);
 #define verbprintf(level, ...) \
     do { if (level <= MAX_VERBOSE_LEVEL) _verbprintf(level, __VA_ARGS__); } while (0)
 
-void hdlc_init(struct demod_state *s);
-void hdlc_rxbit(struct demod_state *s, int bit);
-
-void uart_init(struct demod_state *s);
-void uart_rxbit(struct demod_state *s, int bit);
-
-void selcall_init(struct demod_state *s);
-void selcall_demod(struct demod_state *s, const float *buffer, int length,
-                   const unsigned int *selcall_freq, const char *const name);
-void selcall_deinit(struct demod_state *s);
 
 /* ---------------------------------------------------------------------- */
 #endif /* _MULTIMON_H */

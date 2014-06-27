@@ -21,9 +21,6 @@ HEADERS += \
 
 SOURCES += \
     unixinput.c \
-    uart.c \
-    selcall.c \
-    hdlc.c \
     costabi.c \
     costabf.c \
     demod_eas.c \
