@@ -67,7 +67,7 @@ $(BINDIR)/%.o:	$(BINDIR)/%.s
 $(BINDIR)/%.o:	%.c
 		$(CC) $(CFLAGS) -c -o $@ $<
 
-SRC_L2		=hdlc.c uart.c
+SRC_L2		=
 SRC_L1		=demod_eas.c 
 SRC_MISC	=unixinput.c costabf.c 
 
