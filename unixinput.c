@@ -589,27 +589,6 @@ int main(int argc, char *argv[])
             verbose_level = strtoul(optarg, 0, 0);
             break;
 
-        case 'b':
-            pocsag_error_correction = strtoul(optarg, 0, 0);
-            if(pocsag_error_correction > 2 || pocsag_error_correction < 0)
-            {
-                fprintf(stderr, "Invalid error correction value!\n");
-                pocsag_error_correction = 2;
-            }
-            break;
-
-        case'p':
-            pocsag_show_partial_decodes = 1;
-            break;
-
-        case'u':
-            pocsag_heuristic_pruning = 1;
-            break;
-
-        case'e':
-            pocsag_prune_empty = 1;
-            break;
-            
         case 'm':
             mute_sox = 1;
             break;
@@ -671,26 +650,10 @@ intypefound:
                 MASK_RESET(i);
             break;
             
-        case 'f':
-            if(!pocsag_mode)
-            {
-                if(!strncmp("numeric",optarg, sizeof("numeric")))
-                    pocsag_mode = POCSAG_MODE_NUMERIC;
-                else if(!strncmp("alpha",optarg, sizeof("alpha")))
-                    pocsag_mode = POCSAG_MODE_ALPHA;
-                else if(!strncmp("skyper",optarg, sizeof("skyper")))
-                    pocsag_mode = POCSAG_MODE_SKYPER;
-            }else fprintf(stderr, "a POCSAG mode has already been selected!\n");
-            break;
-            
         case 'n':
             dont_flush = true;
             break;
 
-        case 'i':
-            pocsag_invert_input = true;
-            break;
-            
         case 'd':
         {
             int i = 0;
