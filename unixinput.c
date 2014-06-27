@@ -44,8 +44,6 @@
 #elif PULSE_AUDIO
 #include <pulse/simple.h>
 #include <pulse/error.h>
-#elif WIN32_AUDIO
-//see win32_soundin.c
 #elif DUMMY_AUDIO
 // NO AUDIO FOR OSX :/
 #else /* SUN_AUDIO */
@@ -214,9 +212,6 @@ static void input_sound(unsigned int sample_rate, unsigned int overlap,
     //printf("DUMMY SOUND IN!");
     //fflush(stdout);
 }
-#elif WIN32_AUDIO
-//Implemented in win32_soundin.c
-void input_sound(unsigned int sample_rate, unsigned int overlap, const char *ifname);
 #elif PULSE_AUDIO
 static void input_sound(unsigned int sample_rate, unsigned int overlap,
                         const char *ifname)

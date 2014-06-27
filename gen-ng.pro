@@ -31,14 +31,6 @@ DEFINES += ONLY_RAW
 DEFINES += CHARSET_UTF8
 }
 
-win32{
-DEFINES += DUMMY_AUDIO
-DEFINES += ONLY_RAW
-DEFINES += WINDOWS
-LIBS += -lwinmm
-}
-
-
 unix:linux-g++-32:!symbian:!macx{
 DEFINES += CHARSET_UTF8
 }

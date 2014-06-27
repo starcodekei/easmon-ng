@@ -32,10 +32,6 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#ifdef _MSC_VER
-#include "msvc_support.h"
-#endif
-
 /* ---------------------------------------------------------------------- */
 
 extern const float costabf[0x400];

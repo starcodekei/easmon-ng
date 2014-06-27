@@ -23,17 +23,12 @@
  */
 
 /* ---------------------------------------------------------------------- */
-#ifdef _MSC_VER
-#include "msvc_support.h"
-#endif
 
 #include "gen.h"
 #include <sys/types.h>
 #include <sys/stat.h>
-#ifndef _MSC_VER
 #include <sys/wait.h>
 #include <unistd.h>
-#endif
 #include <string.h>
 #include <stdio.h>
 #include <fcntl.h>
