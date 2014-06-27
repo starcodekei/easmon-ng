@@ -28,16 +28,11 @@ SOURCES += \
     demod_fsk96.c \
     demod_dtmf.c \
     demod_clipfsk.c \
-    demod_afsk24.c \
-    demod_afsk24_3.c \
-    demod_afsk24_2.c \
-    demod_afsk12.c \
     costabi.c \
     costabf.c \
     clip.c \
     demod_eas.c \
     demod_dumpcsv.c
-
 
 macx{
 DEFINES += DUMMY_AUDIO
