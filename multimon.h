@@ -156,12 +156,6 @@ struct demod_state {
             unsigned int lasts;
         } afsk24;
         
-        struct l1_state_hapn48 {
-            unsigned int shreg;
-            unsigned int sphase;
-            float lvllo, lvlhi;
-        } hapn48;
-        
         struct l1_state_fsk96 {
             unsigned int dcd_shreg;
             unsigned int sphase;
@@ -220,21 +214,16 @@ extern const struct demod_param demod_afsk2400;
 extern const struct demod_param demod_afsk2400_2;
 extern const struct demod_param demod_afsk2400_3;
 
-extern const struct demod_param demod_hapn4800;
 extern const struct demod_param demod_fsk9600;
 
 extern const struct demod_param demod_dtmf;
-
-extern const struct demod_param demod_eea;
-extern const struct demod_param demod_eia;
-extern const struct demod_param demod_ccir;
 
 extern const struct demod_param demod_dumpcsv;
 
 
 #define ALL_DEMOD &demod_eas, &demod_ufsk1200, &demod_clipfsk, \
-    &demod_afsk1200, &demod_afsk2400, &demod_afsk2400_2, &demod_afsk2400_3, &demod_hapn4800, \
-    &demod_fsk9600, &demod_dtmf, &demod_eea, &demod_eia, &demod_ccir, &demod_dumpcsv 
+    &demod_afsk1200, &demod_afsk2400, &demod_afsk2400_2, &demod_afsk2400_3, \
+    &demod_fsk9600, &demod_dtmf, &demod_dumpcsv 
 
 
 /* ---------------------------------------------------------------------- */
