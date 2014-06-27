@@ -1,10 +1,13 @@
-multimon-ng a fork of multimon. It decodes the following digital transmission modes:
+easmon-ng is a fork of multimon-ng which is a fork of multimon. It decodes the following:
+- EAS only
+- Everything else has been removed to make this app lighter and easier to script on RaspberryPi
+- (Assuming this damn thing will compile there)
 
-- POCSAG512 POCSAG1200 POCSAG2400
-- EAS
-- UFSK1200 CLIPFSK AFSK1200 AFSK2400 AFSK2400_2 AFSK2400_3
-- HAPN4800
-- FSK9600 
+Changes planned (not done yet):
+- Removed all demods except EAS
+- Removed X11
+- Removed Windows support
+
 - DTMF
 - ZVEI1 ZVEI2 ZVEI3 DZVEI PZVEI
 - EEA EIA CCIR
@@ -15,7 +18,6 @@ The following changes have been made so far:
 - Basic functionality on Mac OS X 'Lion' (Soundcard/OSS input is unsupported)
 - `DUMMY_AUDIO` "backend" (Gets rid of the OSS dependency, breaks audio in doing so)
 - `ONLY_RAW` disables the format conversion while getting rid of posix dependencies
-- Option `NO_X11` to disable the X11 dependency since Apple will drop Xorg soon
 - Override mode for POCSAG decoding (e.g. force text decoding)
 - Brute-Force BCH implementation for POCSAG forward error correction
 - Verbose mode is now listed in `-h`

@@ -2,16 +2,14 @@ DEBUG		=n
 OS		=$(shell uname)
 MACH		=$(shell uname -m)
 
-CFLAGS		=-Wall -Wstrict-prototypes -I/usr/X11R6/include
+CFLAGS		=-Wall -Wstrict-prototypes 
 
 ifeq ($(OS),Darwin)
 CFLAGS		+=-DDUMMY_AUDIO
-CFLAGS		+=-DNO_X11
 endif
 
 ifeq ($(OS),CYGWIN_NT-6.1)
 CFLAGS		+=-DDUMMY_AUDIO
-CFLAGS		+=-DNO_X11
 endif
 
 ifeq ($(OS),SunOS)
@@ -20,7 +18,7 @@ CFLAGS		+=-g -O -DSUN_AUDIO -DARCH_SPARC
 else
 CFLAGS		+=-O3 -DSUN_AUDIO -DARCH_SPARC
 endif
-LDFLAGSX	=-lX11 -L/usr/X11R6/lib -R/usr/X11R6/lib -lsocket -lnsl
+LDFLAGSX	=-lsocket -lnsl
 else
 ifeq ($(MACH),x86_64)
 ifeq ($(DEBUG),y)
@@ -28,7 +26,7 @@ CFLAGS          +=-g -O -DARCH_X86_64 -DPULSE_AUDIO
 else
 CFLAGS          +=-O3 -DARCH_X86_64 -DPULSE_AUDIO
 endif
-LDFLAGSX        = -lX11 -L/usr/X11R6/lib -lpulse-simple
+LDFLAGSX        =-lpulse-simple
 else
 ifeq ($(DEBUG),y)
 CFLAGS		+=-g -O -falign-loops=2 -falign-jumps=2 \
@@ -37,7 +35,7 @@ else
 CFLAGS		+=-O3 -falign-loops=2 -falign-jumps=2 \
 		  -falign-functions=2 -DPULSE_AUDIO #-DARCH_I386 -march=i486 
 endif
-LDFLAGSX	= -lX11 -L/usr/X11R6/lib -lpulse-simple
+LDFLAGSX	= -lpulse-simple
 endif
 endif
 

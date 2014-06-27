@@ -55,7 +55,6 @@ SOURCES += \
 
 macx{
 DEFINES += DUMMY_AUDIO
-DEFINES += NO_X11
 DEFINES += CHARSET_UTF8
 #DEFINES += ARCH_X86_64
 #LIBS += -lX11 -L/usr/X11R6/lib -R/usr/X11R6/lib # If you care you can also compile this on OSX. Though
@@ -66,7 +65,6 @@ DEFINES += CHARSET_UTF8
 win32{
 #DEFINES += DUMMY_AUDIO
 DEFINES += WIN32_AUDIO
-DEFINES += NO_X11
 DEFINES += ONLY_RAW
 DEFINES += WINDOWS
 SOURCES += win32_soundin.c
