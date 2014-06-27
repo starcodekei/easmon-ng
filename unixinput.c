@@ -85,11 +85,6 @@ static int integer_only = true;
 static bool dont_flush = false;
 
 extern int aprs_mode;
-extern int cw_dit_length;
-extern int cw_gap_length;
-extern int cw_threshold;
-extern bool cw_disable_auto_threshold;
-extern bool cw_disable_auto_timing;
 
 void quit(void);
 
@@ -654,37 +649,6 @@ intypefound:
             dont_flush = true;
             break;
 
-        case 'd':
-        {
-            int i = 0;
-            sscanf(optarg, "%d", &i);
-            if(i) cw_dit_length = abs(i);
-            break;
-        }
-            
-        case 'g':
-        {
-            int i = 0;
-            sscanf(optarg, "%d", &i);
-            if(i) cw_gap_length = abs(i);
-            break;
-        }
-            
-        case 'o':
-        {
-            int i = 0;
-            sscanf(optarg, "%d", &i);
-            if(i) cw_threshold = abs(i);
-            break;
-        }
-            
-        case 'x':
-            cw_disable_auto_threshold = true;
-            break;
-            
-        case 'y':
-            cw_disable_auto_timing = true;
-            break;
         }
     }
 
