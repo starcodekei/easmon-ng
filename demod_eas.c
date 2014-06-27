@@ -239,7 +239,8 @@ static void eas_frame(struct demod_state *s, char data)
        else if (s->l2.eas.state == EAS_L2_READING_EOM)
        {
          // raise the EOM
-         verbprintf(0, "%s: %s\n", s->dem_par->name, EOM);
+//lets hide the EOM for now
+//         verbprintf(0, "%s: %s\n", s->dem_par->name, EOM);
        }
        // go back to idle
        s->l2.eas.state = EAS_L2_IDLE;
