@@ -30,9 +30,6 @@ SOURCES += \
     demod_eia.c \
     demod_eea.c \
     demod_ufsk12.c \
-    demod_poc24.c \
-    demod_poc12.c \
-    demod_poc5.c \
     demod_hapn48.c \
     demod_fsk96.c \
     demod_dtmf.c \

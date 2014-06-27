@@ -120,22 +120,6 @@ struct demod_state {
         } pocsag;
     } l2;
     union {
-        struct l1_state_poc5 {
-            uint32_t dcd_shreg;
-            uint32_t sphase;
-            uint32_t subsamp;
-        } poc5;
-        
-        struct l1_state_poc12 {
-            uint32_t dcd_shreg;
-            uint32_t sphase;
-            uint32_t subsamp;
-        } poc12;
-        
-        struct l1_state_poc24 {
-            uint32_t dcd_shreg;
-            uint32_t sphase;
-        } poc24;
         
         struct l1_state_eas {
             unsigned int dcd_shreg;
@@ -243,10 +227,6 @@ struct demod_param {
 
 /* ---------------------------------------------------------------------- */
 
-extern const struct demod_param demod_poc5;
-extern const struct demod_param demod_poc12;
-extern const struct demod_param demod_poc24;
-
 extern const struct demod_param demod_eas;
 
 extern const struct demod_param demod_ufsk1200;
@@ -272,7 +252,7 @@ extern const struct demod_param demod_morse;
 extern const struct demod_param demod_dumpcsv;
 
 
-#define ALL_DEMOD &demod_poc5, &demod_poc12, &demod_poc24, &demod_eas, &demod_ufsk1200, &demod_clipfsk, \
+#define ALL_DEMOD &demod_eas, &demod_ufsk1200, &demod_clipfsk, \
     &demod_afsk1200, &demod_afsk2400, &demod_afsk2400_2, &demod_afsk2400_3, &demod_hapn4800, \
     &demod_fsk9600, &demod_dtmf, \
     &demod_pzvei, &demod_eea, &demod_eia, &demod_ccir, &demod_morse, &demod_dumpcsv 
