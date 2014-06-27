@@ -655,11 +655,9 @@ intypefound:
 
     if ( !quietflg )
     { // pay heed to the quietflg
-    fprintf(stderr, "multimon-ng  (C) 1996/1997 by Tom Sailer HB9JNX/AE4WA\n"
+    fprintf(stderr, "easmon-ng  (C) 1996/1997 by Tom Sailer HB9JNX/AE4WA\n"
         "             (C) 2012-2014 by Elias Oenal\n"
-        "available demodulators:");
-    for (i = 0; (unsigned int) i < NUMDEMOD; i++) {
-        fprintf(stderr, " %s", dem[i]->name);
+        "             (C) 2014 by Steven Salerno K5SQL\n");
     }
     fprintf(stderr, "\n");
     }
@@ -671,8 +669,6 @@ intypefound:
     if (mask_first)
         memset(dem_mask, 0xff, sizeof(dem_mask));
     
-    if (!quietflg)
-        fprintf(stdout, "Enabled demodulators:");
     for (i = 0; (unsigned int) i < NUMDEMOD; i++)
         if (MASK_ISSET(i)) {
             if (!quietflg)
