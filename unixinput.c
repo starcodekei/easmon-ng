@@ -84,8 +84,6 @@ static int mute_sox = 0;
 static int integer_only = true;
 static bool dont_flush = false;
 
-extern int aprs_mode;
-
 void quit(void);
 
 /* ---------------------------------------------------------------------- */
