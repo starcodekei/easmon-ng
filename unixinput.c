@@ -658,7 +658,7 @@ intypefound:
     fprintf(stderr, "easmon-ng  (C) 1996/1997 by Tom Sailer HB9JNX/AE4WA\n"
         "             (C) 2012-2014 by Elias Oenal\n"
         "             (C) 2014 by Steven Salerno K5SQL\n");
-    }
+    
     fprintf(stderr, "\n");
     }
 
